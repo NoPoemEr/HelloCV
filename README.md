@@ -1,11 +1,11 @@
 # HelloCV
-Git 实践任务交付仓库。本仓库汇总本次任务的两个成果仓库：
 
+Git 实践任务交付仓库。本仓库汇总本次任务的两个成果仓库：
 
 | 仓库 | 平台 | 地址 |
 |---|---|---|
 | git_training | Gitee | https://gitee.com/Argentum_071/git_training |
-HelloCV | GitHub | https://github.com/NoPoemEr/HelloCV |
+| HelloCV | GitHub | https://github.com/NoPoemEr/HelloCV |
 
 `git_training` 是用 C++ 实现的控制台四则运算计算器，也是本次练习 Git
 全部基本命令的主仓库；`HelloCV`（即本仓库）用于交付说明和语雀笔记汇总。
