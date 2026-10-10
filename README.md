@@ -100,7 +100,19 @@ ssh -T git@gitee.com      # 返回 Hi 用户名! 即成功
 ssh -T git@github.com     # 返回 Hi 用户名! 即成功
 ```
 
-### 4. 克隆 git_training 仓库
+### 4. 配置仓库级提交身份
+
+克隆下来的仓库如果和全局身份不一致，可以在仓库内单独指定，
+避免提交记录归属到错误账号：
+
+```bash
+cd git_training
+git config user.name "NoPoemEr"
+git config user.email "1349843884@qq.com"
+git config --local --list
+```
+
+### 5. 克隆 git_training 仓库
 
 ```bash
 git clone git@gitee.com:Argentum_071/git_training.git
