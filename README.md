@@ -45,9 +45,10 @@ git_training/
 
 ```
 HelloCV/
-├── .gitignore        # 忽略编译产物
-├── README.md         # 本文件，项目说明与使用方法
-└── notes.md          # 语雀笔记链接汇总
+├── .gitignore          # 忽略编译产物
+├── README.md           # 本文件，项目说明与使用方法
+├── notes.md            # 语雀笔记链接汇总
+└── 关于本次提交.md      # 关于本次提交的说明
 ```
 
 ## 三、环境配置步骤
@@ -171,4 +172,10 @@ make clean
 
 ## 六、语雀笔记链接
 
-所有笔记链接汇总见 [notes.md](notes.md)。
+| 笔记 | 链接 |
+|---|---|
+| 《Git 实践任务》 | https://www.yuque.com/yuqueyonghu-txqzbh/pzf6m6/zfrngyqi1g5u4w3f?singleDoc |
+| 《Git 学习任务》 | https://www.yuque.com/yuqueyonghu-txqzbh/pzf6m6/rf9dgf730rggiuyg?singleDoc |
+| 《Linux 学习与实践记录》 | https://www.yuque.com/yuqueyonghu-txqzbh/pzf6m6/dvdbxn00ga1tgm4u?singleDoc |
+
+完整汇总见 [notes.md](notes.md)，关于本次提交的说明见 [关于本次提交.md](关于本次提交.md)。
