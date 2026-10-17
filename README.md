@@ -1,6 +1,15 @@
 # HelloCV
 
-CMake 实践任务：用 C++ 写一个命令行单位转换器，练习把项目拆成“可执行程序 + 静态库”，并用 CMake 组织多目录构建。
+个人编程训练仓库：把每个练习拆成独立目录，各自可单独构建、运行、测试。
+
+| 目录 | 内容 | 技术栈 |
+| --- | --- | --- |
+| [`UnitConverter/`](UnitConverter/) | CMake 实践：命令行单位转换器（可执行程序 + 静态库） | C++11 / CMake |
+| [`llm-gateway/`](llm-gateway/) | AI 实践：石头剪刀布决策网关（一行 JSON 进、一行 JSON 出） | Python 3 |
+
+## 项目一：CMake 单位转换器
+
+用 C++ 写一个命令行单位转换器，练习把项目拆成"可执行程序 + 静态库"，并用 CMake 组织多目录构建。
 
 支持三组双向转换：
 
@@ -8,7 +17,7 @@ CMake 实践任务：用 C++ 写一个命令行单位转换器，练习把项目
 - 长度：米 ↔ 英尺
 - 质量：千克 ↔ 磅
 
-## 项目结构
+### 项目结构
 
 ```
 HelloCV/
@@ -37,14 +46,14 @@ HelloCV/
 - `UnitConverter/unitlib/src/unitlib.cpp`：转换函数的具体实现
 - `UnitConverter/build/`：CMake 生成的构建目录，不提交
 
-## 环境要求
+### 环境要求
 
 - CMake 3.10 及以上（本项目在 3.22.1 上测试）
 - 支持 C++11 的编译器（测试用 g++ 11.4.0）
 - make（或 ninja）
 - Linux，测试环境为 Ubuntu 22.04
 
-## 环境配置
+### 环境配置
 
 Debian / Ubuntu 下一条命令装齐编译器和构建工具：
 
@@ -68,7 +77,7 @@ wget -O cmake.sh https://github.com/Kitware/CMake/releases/download/v3.22.1/cmak
 sudo bash cmake.sh --prefix=/usr/local --skip-license
 ```
 
-## 构建
+### 构建
 
 进入 `UnitConverter/` 目录后执行：
 
@@ -82,7 +91,6 @@ cmake -S . -B build
 cmake --build build -j
 ```
 
-
 构建产物：
 
 ```
@@ -90,7 +98,7 @@ build/unitconverter          可执行文件
 build/unitlib/libunitlib.a   静态库
 ```
 
-## 运行
+### 运行
 
 ```bash
 ./build/unitconverter
@@ -120,7 +128,7 @@ build/unitlib/libunitlib.a   静态库
 
 结果统一保留 4 位小数。
 
-## 换算公式
+### 换算公式
 
 | 转换 | 公式 |
 |---|---|
@@ -131,7 +139,7 @@ build/unitlib/libunitlib.a   静态库
 | 千克 → 磅 | lb = kg ÷ 0.45359237 |
 | 磅 → 千克 | kg = lb × 0.45359237 |
 
-## 清理
+### 清理
 
 ```bash
 rm -rf build
@@ -143,9 +151,29 @@ rm -rf build
 cmake --build build --target clean
 ```
 
+## 项目二：LLM 决策网关
+
+把一行 JSON 请求转发给 DeepSeek，再把模型返回的任意文本整理成一行严格合法的 JSON，
+用于石头剪刀布决策。核心是三级 JSON 容错、重试分类和本地兜底：坏输入、上游报错、
+模型胡说都不能让程序崩掉。
+
+```bash
+cd llm-gateway
+
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+export DEEPSEEK_API_KEY=sk-xxxxxxxx        # key 只放环境变量
+
+python selfcheck.py                        # 93 个测试
+echo '{"time": "t1", "history": ["rock"]}' | python run_gateway.py --offline
+python play_game.py --rounds 10            # 真实 API 对局
+```
+
+目录结构、协议、设计要点和完整用法见 [`llm-gateway/README.md`](llm-gateway/README.md)。
+
 ## 语雀笔记
 
-本次任务的学习笔记与实践笔记，链接汇总见 [notes.md](notes.md)。
+每次任务的学习笔记与实践笔记，链接汇总见 [notes.md](notes.md)。
 
 ## 仓库
 
