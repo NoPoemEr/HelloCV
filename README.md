@@ -44,6 +44,30 @@ HelloCV/
 - make（或 ninja）
 - Linux，测试环境为 Ubuntu 22.04
 
+## 环境配置
+
+Debian / Ubuntu 下一条命令装齐编译器和构建工具：
+
+```bash
+sudo apt update
+sudo apt install -y build-essential cmake
+```
+
+装完确认版本：
+
+```bash
+cmake --version    # 需要 3.10 以上
+g++ --version      # 需要支持 C++11
+make --version
+```
+
+如果系统自带的 CMake 低于 3.10，可以用官方安装脚本装新版：
+
+```bash
+wget -O cmake.sh https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-x86_64.sh
+sudo bash cmake.sh --prefix=/usr/local --skip-license
+```
+
 ## 构建
 
 进入 `UnitConverter/` 目录后执行：
