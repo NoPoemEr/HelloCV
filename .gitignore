@@ -9,6 +9,20 @@ obj/
 *.exe
 *.out
 
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+.env
+.env.*
+*.key
+decisions*.jsonl
+.npm/
+node_modules/
+
 # ===== 编辑器 / IDE =====
 .vscode/
 .idea/
