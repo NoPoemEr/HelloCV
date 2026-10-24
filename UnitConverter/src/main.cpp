@@ -43,7 +43,7 @@ void printValue(double value) {
 
 struct Conversion {
     const char* from;
-    const char* to;
+    const char* to; 
     double (*apply)(double);
 };
 
